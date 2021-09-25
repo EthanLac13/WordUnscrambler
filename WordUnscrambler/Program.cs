@@ -13,35 +13,38 @@ namespace WordUnscrambler
 
         static void Main(string[] args)
         {
-            try
-            {
-                Console.WriteLine("Enter scrambled word(s) manually or as a file: F - file / M - manual");
-
-                String option = Console.ReadLine() ?? throw new Exception("String is empty");
-
-                switch (option.ToUpper())
+            while(true)
+            {  
+                try
                 {
-                    case "F":
-                        Console.WriteLine("Enter full path including the file name: ");
-                        ExecuteScrambledWordsInFileScenario();
-                        break;
-                    case "M":
-                        Console.WriteLine("Enter word(s) manually (separated by commas if multiple): ");
-                        ExecuteScrambledWordsManualEntryScenario();
-                        break;
-                    default:
-                        Console.WriteLine("The entered option was not recognized.");
-                        break;
+                    Console.WriteLine("Enter scrambled word(s) manually or as a file: F - file / M - manual");
+
+                    String option = Console.ReadLine() ?? throw new Exception("String is empty");
+
+                    switch (option.ToUpper())
+                    {
+                        case "F":
+                            Console.WriteLine("Enter full path including the file name: ");
+                            ExecuteScrambledWordsInFileScenario();
+                            break;
+                        case "M":
+                            Console.WriteLine("Enter word(s) manually (separated by commas if multiple): ");
+                            ExecuteScrambledWordsManualEntryScenario();
+                            break;
+                        default:
+                            Console.WriteLine("The entered option was not recognized.");
+                            break;
+                    }
+
+                    //Console.ReadLine();
+
+
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("The program will be terminated. " + ex.Message);
 
-                Console.ReadLine();
-
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("The program will be terminated." + ex.Message);
-
+                }
             }
         }
 
