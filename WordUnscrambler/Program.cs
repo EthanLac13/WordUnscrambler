@@ -13,7 +13,8 @@ namespace WordUnscrambler
 
         static void Main(string[] args)
         {
-            while(true)
+            bool keepGoing = true;
+            while(keepGoing)
             {  
                 try
                 {
@@ -43,7 +44,7 @@ namespace WordUnscrambler
                 catch (Exception ex)
                 {
                     Console.WriteLine("The program will be terminated. " + ex.Message);
-
+                    keepGoing = false;
                 }
             }
         }
@@ -66,6 +67,10 @@ namespace WordUnscrambler
 
             //call a word matcher method to get a list of structs of matched words.
             List<MatchedWord> matchedWords = _wordMatcher.Match(scrambledWords, wordList);
+            foreach (var matchedWord in matchedWords)
+            {
+                Console.WriteLine("Match: {0} unscrambles to {1}.", matchedWord.GetScrambledWord(), matchedWord.GetWord());
+            }
         }
     }
 }
