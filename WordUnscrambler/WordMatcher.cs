@@ -17,6 +17,7 @@ namespace WordUnscrambler
             {
                 foreach (var word in wordList)
                 {
+                
                     //Console.Write("{0} and {1}: ", scrambledWord, word);
                     str1 = String.Concat(scrambledWord.OrderBy(c => c));
                     str2 = String.Concat(word.OrderBy(c => c));
