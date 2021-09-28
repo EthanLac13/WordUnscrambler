@@ -39,13 +39,25 @@ namespace WordUnscrambler
                             break;
                     }
 
-                        //Console.ReadLine();
-
-
+                    Console.WriteLine(ProgramConstants.PROMPT9);
+                    option = Console.ReadLine() ?? throw new Exception(ProgramConstants.PROMPT2);
+                    switch (option.ToUpper())
+                    {
+                        case "Y":
+                            break;
+                        case "N":
+                            keepGoing = false;
+                            break;
+                        default:
+                            Console.WriteLine(ProgramConstants.PROMPT5);
+                            Console.WriteLine(ProgramConstants.PROMPT10);
+                            break;
                     }
+                }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ProgramConstants.PROMPT6 + ex.Message);
+                    Console.ReadLine();
                     keepGoing = false;
                 }
             }
@@ -119,7 +131,7 @@ namespace WordUnscrambler
 
             foreach (var matchedWord in matchedWords)
             {
-                Console.WriteLine("Match: {0} unscrambles to {1}.", matchedWord.GetScrambledWord(), matchedWord.GetWord());
+                Console.WriteLine(ProgramConstants.PROMPT8, matchedWord.GetScrambledWord(), matchedWord.GetWord());
             }
         }
     }
