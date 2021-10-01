@@ -11,9 +11,15 @@ namespace WordUnscrambler
     {
         public string[] Read(string filename)
         {
+            try
+            {
             string[] fileData = File.ReadAllLines(filename);
             //Console.WriteLine(fileData[0]);
             return fileData;
+        }
+            catch(FileNotFoundException ex) { 
+
+        }
         }
     }
 }
