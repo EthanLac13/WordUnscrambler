@@ -17,9 +17,9 @@ namespace WordUnscrambler
             //Console.WriteLine(fileData[0]);
             return fileData;
         }
-            catch(FileNotFoundException ex) { 
-
-        }
+            catch(FileNotFoundException ex) {
+                Console.WriteLine(" Exception: "+ex);
+                    }
         }
     }
 }
